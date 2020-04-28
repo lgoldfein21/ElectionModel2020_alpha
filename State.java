@@ -8,23 +8,26 @@ public class State {
     private double BidenAvg;
     private double TrumpAvg;
     private double avg;
+    private double up;
+    private int delegates;
 
     private double odds;
-    private String swing;
+    private String winner;
 
     private double eff2016 = 1.3;
     private double eff2012 = 1.2;
     private double eff2008 = 1.1;
 
-    public State(String name, boolean e2016, boolean e2012, boolean e2008, double BidenAvg, double TrumpAvg) {
-        this.name = name;
-        this.e2012 = e2012;
-        this.e2016 = e2016;
-        this.e2008 = e2008;
+    public State(String name, boolean e2016, boolean e2012, boolean e2008, double BidenAvg, double TrumpAvg, int delegates) {
+      this.name = name;
+      this.e2012 = e2012;
+      this.e2016 = e2016;
+      this.e2008 = e2008;
 
-        this.BidenAvg = BidenAvg;
-        this.TrumpAvg = TrumpAvg;
+      this.BidenAvg = BidenAvg;
+      this.TrumpAvg = TrumpAvg;
 
+      this.delegates = delegates;
     }
     public double getPreAvg() {
         avg = (BidenAvg / (BidenAvg + TrumpAvg));
@@ -85,6 +88,10 @@ public class State {
         return TrumpAvg;
     }
 
+    public int getDelegates(){
+      return delegates;
+    }
+
     public double getChance() {
         avg = (BidenAvg / (BidenAvg + TrumpAvg));
         avg = 1 / (1 + Math.pow((Math.E), -10 * (avg - .5)));
@@ -107,6 +114,30 @@ public class State {
             avg = Math.pow(avg, 1.1);
         }
         return avg;
+    }
+    public String getCompleteOdds(){
+       avg = (BidenAvg / (BidenAvg + TrumpAvg));
+        avg = 1 / (1 + Math.pow((Math.E), -13 * (avg - .5)));
+
+        if (e2016 == true) {
+            avg = Math.pow(avg, .75);
+        } else {
+            avg = Math.pow(avg, 1.25);
+        }
+
+        if (e2012 == true) {
+            avg = Math.pow(avg, .85);
+        } else {
+            avg = Math.pow(avg, 1.15);
+        }
+
+        if (e2008 == true) {
+            avg = Math.pow(avg, .9);
+        } else {
+            avg = Math.pow(avg, 1.1);
+        }
+
+      return "Biden has " + avg * 100 + "% odds to win " + name;
     }
 
     public String toString() {
@@ -131,7 +162,16 @@ public class State {
             avg = Math.pow(avg, 1.1);
         }
 
+        if(avg>.5){
+        winner = "Biden";
+        }
+        else{
+          winner = "Trump";
+          avg = 1 - avg;
+        }
 
-        return "Biden has " + avg * 100 + "% odds to win " + name;
+        avg = Math.round(avg * 1000.0) / 1000.0;
+
+        return (name + ": " + winner + " " + avg*100 + "%");
     }
 }
