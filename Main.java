@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-      
+
         State NY = new State("New York", true, true, true, 58.8, 37.5, 29);
         State NJ = new State("New Jersey", true, true, true, 55.0, 41.8, 14);
         State CA = new State("California", true, true, true, 61.5, 33.2, 55);
@@ -42,7 +42,7 @@ public class Main {
         State NV = new State("Nevada", true, true, true, 48.3, 44.7, 6);
         State OR = new State("Oregon", true, true, true, 51.7, 41.1, 7);
         State WA = new State("Washington", true, true, true, 54.4, 38.2, 12);
-        State ME = new State("Maine", true, true, true, 53.3, 43.3,4);
+        State ME = new State("Maine", true, true, true, 53.3, 43.3, 4);
         State DE = new State("Delaware", true, true, true, 53.4, 41.9, 3);
         State CT = new State("Connecticut", true, true, true, 54.5, 41.2, 7);
         State MA = new State("Massachusetts", true, true, true, 60.8, 33.5, 11);
@@ -108,8 +108,11 @@ public class Main {
         a.addState(WY);
 
         a.printStateOdds();
+
         System.out.println("");
         System.out.println("");
+        
         a.runFullBasicSimulation();
+
     }
 }

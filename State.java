@@ -19,15 +19,15 @@ public class State {
     private double eff2008 = 1.1;
 
     public State(String name, boolean e2016, boolean e2012, boolean e2008, double BidenAvg, double TrumpAvg, int delegates) {
-      this.name = name;
-      this.e2012 = e2012;
-      this.e2016 = e2016;
-      this.e2008 = e2008;
+        this.name = name;
+        this.e2012 = e2012;
+        this.e2016 = e2016;
+        this.e2008 = e2008;
 
-      this.BidenAvg = BidenAvg;
-      this.TrumpAvg = TrumpAvg;
+        this.BidenAvg = BidenAvg;
+        this.TrumpAvg = TrumpAvg;
 
-      this.delegates = delegates;
+        this.delegates = delegates;
     }
     public double getPreAvg() {
         avg = (BidenAvg / (BidenAvg + TrumpAvg));
@@ -88,8 +88,8 @@ public class State {
         return TrumpAvg;
     }
 
-    public int getDelegates(){
-      return delegates;
+    public int getDelegates() {
+        return delegates;
     }
 
     public double getChance() {
@@ -115,8 +115,8 @@ public class State {
         }
         return avg;
     }
-    public String getCompleteOdds(){
-       avg = (BidenAvg / (BidenAvg + TrumpAvg));
+    public String getCompleteOdds() {
+        avg = (BidenAvg / (BidenAvg + TrumpAvg));
         avg = 1 / (1 + Math.pow((Math.E), -13 * (avg - .5)));
 
         if (e2016 == true) {
@@ -137,7 +137,7 @@ public class State {
             avg = Math.pow(avg, 1.1);
         }
 
-      return "Biden has " + avg * 100 + "% odds to win " + name;
+        return "Biden has " + avg * 100 + "% odds to win " + name;
     }
 
     public String toString() {
@@ -162,16 +162,15 @@ public class State {
             avg = Math.pow(avg, 1.1);
         }
 
-        if(avg>.5){
-        winner = "Biden";
-        }
-        else{
-          winner = "Trump";
-          avg = 1 - avg;
+        if (avg > .5) {
+            winner = "Biden";
+        } else {
+            winner = "Trump";
+            avg = 1 - avg;
         }
 
         avg = Math.round(avg * 1000.0) / 1000.0;
 
-        return (name + ": " + winner + " " + avg*100 + "%");
+        return (name + ": " + winner + " " + avg * 100 + "%");
     }
 }
