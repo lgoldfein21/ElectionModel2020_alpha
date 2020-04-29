@@ -94,7 +94,7 @@ public class State {
 
     public double getChance() {
         avg = (BidenAvg / (BidenAvg + TrumpAvg));
-        avg = 1 / (1 + Math.pow((Math.E), -10 * (avg - .5)));
+        avg = 1 / (1 + Math.pow((Math.E), -13 * (avg - .5)));
 
         if (e2016 == true) {
             avg = Math.pow(avg, .75);

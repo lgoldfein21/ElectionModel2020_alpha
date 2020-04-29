@@ -9,7 +9,7 @@ public class Main {
         State TX = new State("Texas", false, false, false, 45.3, 47.5, 38);
         State FL = new State("Florida", false, true, true, 46.5, 43.3, 29);
         State PA = new State("Pennsylvania", false, true, true, 48.0, 41.3, 20);
-        State NC = new State("North Carolina", false, false, true, 46.0, 47.3, 15);
+        State NC = new State("North Carolina", false, false, true, 46.7, 47.0, 15);
         State SC = new State("South Carolina", false, false, false, 40.8, 54.9, 9);
         State MN = new State("Minnesota", true, true, true, 46.9, 45.4, 10);
         State WI = new State("Wisconsin", false, true, true, 46.7, 44.0, 10);
@@ -108,6 +108,8 @@ public class Main {
         a.addState(WY);
 
         a.printStateOdds();
-        a.printElectoralCollege();
+        System.out.println("");
+        System.out.println("");
+        a.runFullBasicSimulation();
     }
 }
