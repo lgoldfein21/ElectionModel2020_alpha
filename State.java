@@ -37,35 +37,6 @@ public class State {
 
         this.region = region;
     }
-    public double getPreAvg() {
-        avg = (BidenAvg / (BidenAvg + TrumpAvg));
-        avg = 1 / (1 + Math.pow((Math.E), -13 * (avg - .5)));
-        return avg;
-    }
-    public double getAvg() {
-        avg = (BidenAvg / (BidenAvg + TrumpAvg));
-
-        if (e2016 == true) {
-            avg = Math.pow(avg, .8);
-        } else {
-            avg = Math.pow(avg, 1.2);
-        }
-
-        if (e2012 == true) {
-            avg = Math.pow(avg, .9);
-        } else {
-            avg = Math.pow(avg, 1.1);
-        }
-
-        if (e2008 == true) {
-            avg = Math.pow(avg, .95);
-        } else {
-            avg = Math.pow(avg, 1.05);
-        }
-
-
-        return avg;
-    }
 
     public boolean get2012() {
         return e2012;
@@ -100,7 +71,7 @@ public class State {
         return delegates;
     }
 
-    public int region() {
+    public int getRegion() {
         return region;
     }
 
@@ -127,6 +98,7 @@ public class State {
         }
         return avg;
     }
+    
     public String getCompleteOdds() {
         avg = (BidenAvg / (BidenAvg + TrumpAvg));
         avg = 1 / (1 + Math.pow((Math.E), -13 * (avg - .5)));
