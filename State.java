@@ -18,7 +18,13 @@ public class State {
     private double eff2012 = 1.2;
     private double eff2008 = 1.1;
 
-    public State(String name, boolean e2016, boolean e2012, boolean e2008, double BidenAvg, double TrumpAvg, int delegates) {
+    private int region;
+    private static final int NORTHEAST = 0;
+    private static final int MIDWEST = 1;
+    private static final int WEST = 2;
+    private static final int SOUTH = 3;
+
+    public State(String name, boolean e2016, boolean e2012, boolean e2008, double BidenAvg, double TrumpAvg, int delegates, int region) {
         this.name = name;
         this.e2012 = e2012;
         this.e2016 = e2016;
@@ -28,6 +34,8 @@ public class State {
         this.TrumpAvg = TrumpAvg;
 
         this.delegates = delegates;
+
+        this.region = region;
     }
     public double getPreAvg() {
         avg = (BidenAvg / (BidenAvg + TrumpAvg));
@@ -90,6 +98,10 @@ public class State {
 
     public int getDelegates() {
         return delegates;
+    }
+
+    public int region() {
+        return region;
     }
 
     public double getChance() {
@@ -161,15 +173,16 @@ public class State {
         } else {
             avg = Math.pow(avg, 1.1);
         }
-
+    
         if (avg > .5) {
             winner = "Biden";
         } else {
             winner = "Trump";
             avg = 1 - avg;
         }
-
+        
         avg = Math.round(avg * 1000.0) / 1000.0;
+
 
         return (name + ": " + winner + " " + avg * 100 + "%");
     }
