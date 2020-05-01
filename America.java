@@ -120,45 +120,49 @@ public class America {
           NortheastWinner = false;
           impactNortheast = impactNortheast +1;
         }
-
+  impactMidwest = ((impactMidwest-1)/3)+1;
+      impactWest = ((impactWest-1)/3)+1;
+      impactNortheast = ((impactNortheast-1)/3)+1;
+      impactSouth = ((impactSouth-1)/3)+1;
+      
         for (int i = 0; i < numStatesAdded; i++) {
 
           if(states[i].getRegion() == WEST){
-          if(WestWinner = true){
-          regionAffectedAvg = Math.pow(states[i].getChance(),impactWest);
+          if(WestWinner == true){
+          regionAffectedAvg = Math.pow(states[i].getChance(),(1/impactWest));
           }
           else{
-           regionAffectedAvg = 1.0-(Math.pow((1.0-states[i].getChance()),impactWest));
+           regionAffectedAvg = Math.pow(states[i].getChance(),impactWest);
           }
           }
 
           else if(states[i].getRegion() == NORTHEAST){
-          if(NortheastWinner = true){
-          regionAffectedAvg = Math.pow(states[i].getChance(),impactNortheast);
+          if(NortheastWinner == true){
+          regionAffectedAvg = Math.pow(states[i].getChance(),(1/impactNortheast));
           }
           else{
-           regionAffectedAvg = 1.0-(Math.pow((1.0-states[i].getChance()),impactNortheast));
+           regionAffectedAvg = Math.pow(states[i].getChance(),impactNortheast);
           }
           }
 
          else if(states[i].getRegion() == SOUTH){
-          if(SouthWinner = true){
-          regionAffectedAvg = Math.pow(states[i].getChance(),impactSouth);
+          if(SouthWinner == true){
+          regionAffectedAvg = Math.pow(states[i].getChance(),(1/impactSouth));
           }
           else{
-           regionAffectedAvg = 1.0-(Math.pow((1.0-states[i].getChance()),impactSouth));
+           regionAffectedAvg = Math.pow(states[i].getChance(),impactSouth);
           }
           }
           
          else if(states[i].getRegion() == MIDWEST){
-          if(MidwestWinner = true){
-          regionAffectedAvg = Math.pow(states[i].getChance(),impactMidwest);
+          if(MidwestWinner == true){
+          regionAffectedAvg = Math.pow(states[i].getChance(),(1/impactMidwest));
           }
           else{
-           regionAffectedAvg = 1.0-(Math.pow((1.0-states[i].getChance()),impactMidwest));
+           regionAffectedAvg = (Math.pow(states[i].getChance(),impactMidwest));
           }
           }
-          
+            System.out.println(regionAffectedAvg);
 
             if (Math.random() < regionAffectedAvg) {
                 BidenDel = BidenDel + states[i].getDelegates();
@@ -178,6 +182,175 @@ public class America {
         }
     System.out.println(WestWinner);
     System.out.println(impactWest);
+
+     System.out.println(NortheastWinner);
+    System.out.println(impactNortheast);
+
+     System.out.println(SouthWinner);
+    System.out.println(impactSouth);
+
+     System.out.println(MidwestWinner);
+    System.out.println(impactMidwest);
+   }
+
+
+
+
+    public void runSmallRegionAffectedSimulation() {
+        BidenDel = 0;
+        TrumpDel = 0;
+
+        impactMidwest = Math.random()*2;
+        impactSouth = Math.random()*2;
+        impactWest = Math.random()*2;
+        impactNortheast = Math.random()*2;
+
+
+        if(impactMidwest < 1){
+          MidwestWinner = false;
+          impactMidwest = impactMidwest +1;
+        }
+        if(impactSouth < 1){
+          SouthWinner = false;
+          impactSouth = impactSouth +1;
+        }
+        if(impactWest < 1){
+          WestWinner = false;
+          impactWest = impactWest +1;
+        }
+        if(impactNortheast < 1){
+          NortheastWinner = false;
+          impactNortheast = impactNortheast +1;
+        }
+
+  impactMidwest = ((impactMidwest-1)/3)+1;
+      impactWest = ((impactWest-1)/3)+1;
+      impactNortheast = ((impactNortheast-1)/3)+1;
+      impactSouth = ((impactSouth-1)/3)+1;
+
+        for (int i = 0; i < numStatesAdded; i++) {
+
+          if(states[i].getRegion() == WEST){
+          if(WestWinner == true){
+          regionAffectedAvg = Math.pow(states[i].getChance(),(1/impactWest));
+          }
+          else{
+           regionAffectedAvg = Math.pow(states[i].getChance(),impactWest);
+          }
+          }
+
+          else if(states[i].getRegion() == NORTHEAST){
+          if(NortheastWinner == true){
+          regionAffectedAvg = Math.pow(states[i].getChance(),(1/impactNortheast));
+          }
+          else{
+           regionAffectedAvg = Math.pow(states[i].getChance(),impactNortheast);
+          }
+          }
+
+         else if(states[i].getRegion() == SOUTH){
+          if(SouthWinner == true){
+          regionAffectedAvg = Math.pow(states[i].getChance(),(1/impactSouth));
+          }
+          else{
+           regionAffectedAvg = Math.pow(states[i].getChance(),impactSouth);
+          }
+          }
+          
+         else if(states[i].getRegion() == MIDWEST){
+          if(MidwestWinner == true){
+          regionAffectedAvg = Math.pow(states[i].getChance(),(1/impactMidwest));
+          }
+          else{
+           regionAffectedAvg = (Math.pow(states[i].getChance(),impactMidwest));
+          }
+         }
+            if (Math.random() < regionAffectedAvg) {
+                BidenDel = BidenDel + states[i].getDelegates();
+            } else {
+                TrumpDel = TrumpDel + states[i].getDelegates();
+            }
+        }
+     System.out.print(BidenDel);
    }
    
+
+   public void runHugeRegionAffectedSimulation() {
+     for(int j=0; j < 1000; j++){
+       BidenDel = 0;
+        TrumpDel = 0;
+
+        impactMidwest = Math.random()*2;
+        impactSouth = Math.random()*2;
+        impactWest = Math.random()*2;
+        impactNortheast = Math.random()*2;
+
+        if(impactMidwest < 1){
+          MidwestWinner = false;
+          impactMidwest = impactMidwest +1;
+        }
+        if(impactSouth < 1){
+          SouthWinner = false;
+          impactSouth = impactSouth +1;
+        }
+        if(impactWest < 1){
+          WestWinner = false;
+          impactWest = impactWest +1;
+        }
+        if(impactNortheast < 1){
+          NortheastWinner = false;
+          impactNortheast = impactNortheast +1;
+        }
+        
+      impactMidwest = ((impactMidwest-1)/3)+1;
+      impactWest = ((impactWest-1)/3)+1;
+      impactNortheast = ((impactNortheast-1)/3)+1;
+      impactSouth = ((impactSouth-1)/3)+1;
+
+        for (int i = 0; i < numStatesAdded; i++) {
+
+          if(states[i].getRegion() == WEST){
+          if(WestWinner == true){
+          regionAffectedAvg = Math.pow(states[i].getChance(),(1/impactWest));
+          }
+          else{
+           regionAffectedAvg = Math.pow(states[i].getChance(),impactWest);
+          }
+          }
+
+          else if(states[i].getRegion() == NORTHEAST){
+          if(NortheastWinner == true){
+          regionAffectedAvg = Math.pow(states[i].getChance(),(1/impactNortheast));
+          }
+          else{
+           regionAffectedAvg = Math.pow(states[i].getChance(),impactNortheast);
+          }
+          }
+
+         else if(states[i].getRegion() == SOUTH){
+          if(SouthWinner == true){
+          regionAffectedAvg = Math.pow(states[i].getChance(),(1/impactSouth));
+          }
+          else{
+           regionAffectedAvg = Math.pow(states[i].getChance(),impactSouth);
+          }
+          }
+          
+         else if(states[i].getRegion() == MIDWEST){
+          if(MidwestWinner == true){
+          regionAffectedAvg = Math.pow(states[i].getChance(),(1/impactMidwest));
+          }
+          else{
+           regionAffectedAvg = (Math.pow(states[i].getChance(),impactMidwest));
+          }
+         }
+            if (Math.random() < regionAffectedAvg) {
+                BidenDel = BidenDel + states[i].getDelegates();
+            } else {
+                TrumpDel = TrumpDel + states[i].getDelegates();
+            }
+        }
+     System.out.println(BidenDel);
+   }
+}
     }

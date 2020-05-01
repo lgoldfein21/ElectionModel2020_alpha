@@ -124,15 +124,15 @@ public class Main {
         a.addState(WI);
         a.addState(WY);
 
-        a.printStateOdds();
+       // a.printStateOdds();
 
-        System.out.println("");
-        System.out.println("");
+      //  System.out.println("");
+       // System.out.println("");
         
         // a.runFullBasicSimulation();
 
+      a.runFullRegionAffectedSimulation(); 
 
-        a.runFullRegionAffectedSimulation();
-
+    // a.runHugeRegionAffectedSimulation();
     }
 }
