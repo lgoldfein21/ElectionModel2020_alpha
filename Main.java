@@ -13,9 +13,9 @@ public class Main {
         State CA = new State("California", true, true, true, 61.5, 33.2, 55, WEST);
         State AZ = new State("Arizona", false, false, false, 48.6, 44.2, 11, WEST);
         State AL = new State("Alabama", false, false, false, 34.6, 62.9, 9, SOUTH);
-        State TX = new State("Texas", false, false, false, 45.3, 47.5, 38, SOUTH);
+        State TX = new State("Texas", false, false, false, 45.4, 46.8, 38, SOUTH);
         State FL = new State("Florida", false, true, true, 46.5, 43.3, 29, SOUTH);
-        State PA = new State("Pennsylvania", false, true, true, 48.0, 41.3, 20, NORTHEAST);
+        State PA = new State("Pennsylvania", false, true, true, 48.3, 41.8, 20, NORTHEAST);
         State NC = new State("North Carolina", false, false, true, 46.7, 47.0, 15, SOUTH);
         State SC = new State("South Carolina", false, false, false, 40.8, 54.9, 9, SOUTH);
         State MN = new State("Minnesota", true, true, true, 46.9, 45.4, 10, MIDWEST);
@@ -28,7 +28,7 @@ public class Main {
         State OH = new State("Ohio", false, true, true, 51.3, 44.7, 18, MIDWEST);
         State IN = new State("Indiana", false, false, true, 37.9, 57.2, 11, MIDWEST);
         State IL = new State("Illinois", true, true, true, 55.4, 39.4, 20, MIDWEST);
-        State IA = new State("Iowa", false, true, true, 44.0, 48.8, 6, MIDWEST);
+        State IA = new State("Iowa", false, true, true, 43.7, 48.3, 6, MIDWEST);
         State GA = new State("Georgia", false, false, false, 43.5, 51.0, 16, SOUTH);
         State ND = new State("North Dakota", false, false, false, 27.8, 64.1, 3, MIDWEST);
         State SD = new State("South Dakota", false, false, false, 31.7, 61.5, 3, MIDWEST);
@@ -124,14 +124,14 @@ public class Main {
         a.addState(WI);
         a.addState(WY);
 
-       // a.printStateOdds();
+        a.printStateOdds();
 
       //  System.out.println("");
        // System.out.println("");
         
-        // a.runFullBasicSimulation();
+         a.runFullBasicSimulation();
 
-      a.runFullRegionAffectedSimulation(); 
+      //a.runFullRegionAffectedSimulation(); 
 
     // a.runHugeRegionAffectedSimulation();
     }
