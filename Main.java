@@ -57,7 +57,7 @@ public class Main {
         State ME_2 = new State("Maine 2nd Congressional District", false, true, true, 41.0, 52.0, 1, NORTHEAST);
         State DE = new State("Delaware", true, true, true, 53.4, 41.9, 3, SOUTH);
         State CT = new State("Connecticut", true, true, true, 54.5, 41.2, 7, NORTHEAST);
-        State MA = new State("Massachusetts", true, true, true, 60.8, 33.5, 11, NORTHEAST);
+        State MA = new State("Massachusetts", true, true, true, 62.5, 31.5, 11, NORTHEAST);
         State VT = new State("Vermont", true, true, true, 61.1, 32.6, 3, NORTHEAST);
         State NH = new State("New Hampshire", true, true, true, 48.3, 43.7, 4, NORTHEAST);
         State RI = new State("Rhode Island", true, true, true, 55.4, 39.8, 4, NORTHEAST);
@@ -126,8 +126,8 @@ public class Main {
 
         a.printStateOdds();
 
-      //  System.out.println("");
-       // System.out.println("");
+      System.out.println("");
+       System.out.println("");
         
          a.runFullBasicSimulation();
 
