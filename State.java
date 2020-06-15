@@ -56,7 +56,7 @@ public class State {
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public double getBidenAvg() {
